@@ -1,0 +1,102 @@
+#!/bin/bash
+#
+# projeto
+# chkconfig: - 80 05
+# description: projeto daemon
+#
+
+### BEGIN INIT INFO
+# Provides:          projeto
+# Required-Start:    $mysqld
+# Required-Stop:     $mysqld
+# Default-Start:
+# Default-Stop:
+# Description:       projeto daemon
+# Short-Description: Enable Django projeto
+### END INIT INFO
+
+# config: /etc/sysconfig/projeto
+# pidfile: /var/run/projeto.pid
+
+# source function library
+. /etc/rc.d/init.d/functions
+
+# pull in sysconfig settings
+#[ -f /etc/sysconfig/projeto ] && . /etc/sysconfig/projeto
+
+RETVAL=0
+prog="projeto"
+
+DJANGO_PID_FILE="/var/run/projeto.pid"
+DJANGO_LOG_FILE="/var/log/projeto.log"
+DJANGO_LOG_LEVEL="INFO"
+DEFAULT_DJANGO="DJANGO"
+DJANGO_PROJECT_DIR="/home/user/projeto"
+PYTHON_PATH="/home/user/projeto/env/bin/python"
+DJANGO_PORT="8080"
+DJANGO_BIND="127.0.0.1"
+
+if [ -z "$DJANGO" ]; then
+    if [ ! -z "$DJANGO_PROJECT_DIR" ]; then
+        DJANGO="$PYTHON_PATH $DJANGO_PROJECT_DIR/manage.py"
+        DJANGO_OPTS="runfcgi method=prefork host=$DJANGO_BIND port=$DJANGO_PORT pidfile=$DJANGO_PID_FILE"
+    else
+        DJANGO=$DEFAULT_DJANGO
+    fi
+fi
+
+cd $DJANGO_PROJECT_DIR
+
+#DJANGO_OPTS="$DJANGO_OPTS -f $DJANGO_LOG_FILE -l $DJANGO_LOG_LEVEL"
+
+#if [ -n "$2" ]; then
+#    DJANGO_OPTS="$DJANGO_OPTS $2"
+#fi
+
+exec="$DJANGO $DJANGO_OPTS"
+
+start()
+{
+        echo -n $"Starting $prog: "
+        daemon --pidfile=${DJANGO_PID_FILE} $exec 2>/dev/null
+        RETVAL=$?
+        echo
+        [ "$RETVAL" = 0 ] && touch /var/lock/subsys/projeto
+        return $RETVAL
+}
+
+stop()
+{
+        echo -n $"Stopping $prog: "
+        killproc -d 10 $exec -TERM
+        RETVAL=$?
+        if [ "x$runlevel" = x0 -o "x$runlevel" = x6 ] ; then
+            killall $exec 2>/dev/null
+        fi
+        echo
+        [ "$RETVAL" = 0 ] && rm -f /var/lock/subsys/projeto /var/run/projeto /var/run/projeto.pid
+        return $RETVAL
+}
+
+
+case "$1" in
+        start)
+                start
+                ;;
+        stop)
+                stop
+                ;;
+        restart)
+                stop
+                start
+                ;;
+        status)
+                status projeto -p $DJANGO_PID_FILE
+                RETVAL=$?
+                ;;
+        *)
+                echo $"Usage: $0 {start|stop|restart|status}"
+                RETVAL=1
+esac
+exit $RETVAL
+
