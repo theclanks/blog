@@ -49,13 +49,6 @@ Please list relevant academic, industry and/or open source experience
 I’m a graduate student of analysis and systems development and a developer on Virgos Co. (www.virgos.com.br) and work with Python/Django, C, and PHP development. Currently, I’m working in a data mining project with Django and Selenium RC, and others telecom projects using Asterisk, C programming and Python.
 
 
-Example of .rst file
---------------------
-
-.. include:: example.rst
-   :code: rest
- 
-
 .. rubric:: References:
 
 .. [#] Sphinx Internationalization: http://sphinx-doc.org/latest/intl.html
