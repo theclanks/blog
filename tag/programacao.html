@@ -56,8 +56,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html"><h1>Teste de Stress no Asterisk c/ SipP</h1></a>
-            Qui 06 dezembro 2012
+            <a href="http://theclanks.github.io/blog/translation-management-and-generation-of-static-content-with-transifex-sphinx.html"><h1>Translation management and generation of static content with Transifex + Sphinx</h1></a>
+            Sex 03 maio 2013
 
 by <a class="url fn" href="http://theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
  
@@ -66,13 +66,93 @@ by <a class="url fn" href="http://theclanks.github.io/blog/author/the-clanks.htm
  
         </div>
         
-        <div><p>Teste simples de stress no Asterisk com a ferramenta SipP:</p>
-<div class="highlight"><pre>sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i <span class="s2">&quot;192.168.0.246&quot;</span> -r 300 -rp 3600
-</pre></div>
+        <div><p>Hi, my name is Luis Carlos Otte Junior, I’m Brazilian and live at São Carlos, São Paulo.</p>
+<p>The proposed project is at two parts, considering time and difficulty level:</p>
+<ul>
+<li><p class="first">Website static generation with translations – 4 weeks – Easy</p>
+<blockquote>
+<ul class="simple">
+<li>Re-write the HTML pages for the Sphinx format (.rst file).</li>
+<li>Use sphinx-build to generate the .pot files and translate them in Transifex.</li>
+<li>After generating .mo translated file use the sphinx-build to generate the pages in each language. <a class="footnote-reference" href="#id4" id="id1">[14]</a></li>
+<li>Use python-fabric to implement the deploy process (copying, compiling translation files, and build static files). <a class="footnote-reference" href="#id5" id="id2">[25]</a></li>
+<li>Create a html template for sphinx with Language auto-selection.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Provide translated versions of images and screenshots – 8 weeks – Moderate</p>
+<blockquote>
+<ul class="simple">
+<li>Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.</li>
+<li>Create an extension in the Sphinx, to manage the correctly images at the generate static pages for each language. <a class="footnote-reference" href="#id6" id="id3">[36]</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<div class="section" id="why-do-you-want-to-work-on-this-project">
+<h2>Why do you want to work on this project?</h2>
+<p>I would like to work in this project because a wish learn more skills, working with international project, learn more English, relate with people from other countries, and, mainly, contribute to the open source community.</p>
+</div>
+<div class="section" id="why-should-we-choose-you">
+<h2>Why should we choose you?</h2>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/luis.carlos/public_html/dev/blog/content/dev/google_summer_2013.rst</tt>, line 34)</p>
+<p>Title underline too short.</p>
+<pre class="literal-block">
+Why should we choose you?
+------------------------
+</pre>
+</div>
+<p>I like to work and study in all that is necessary, specially Linux, Python, and PHP. Nowadays, I’m working with open source projects in a corporation. And I would like to be useful in anything.</p>
+</div>
+<div class="section" id="please-list-relevant-academic-industry-and-or-open-source-experience">
+<h2>Please list relevant academic, industry and/or open source experience</h2>
+<p>I’m a graduate student of analysis and systems development and a developer on Virgos Co. (www.virgos.com.br) and work with Python/Django, C, and PHP development. Currently, I’m working in a data mining project with Django and Selenium RC, and others telecom projects using Asterisk, C programming and Python.</p>
+<p class="rubric">References:</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[4]</a></td><td>Sphinx Internationalization: <a class="reference external" href="http://sphinx-doc.org/latest/intl.html">http://sphinx-doc.org/latest/intl.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[5]</a></td><td>python-Fabric: <a class="reference external" href="http://docs.fabfile.org/en/1.6/">http://docs.fabfile.org/en/1.6/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[6]</a></td><td>Sphinx Extensions: <a class="reference external" href="http://sphinx-doc.org/extensions.html">http://sphinx-doc.org/extensions.html</a></td></tr>
+</tbody>
+</table>
+</div>
 </div>
         <hr />
     </div>
 		
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html"><h2>Teste de Stress no Asterisk c/ SipP</h2></a>
+        <div class= "well small"> Qui 06 dezembro 2012
+
+by <a class="url fn" href="http://theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Teste simples de stress no Asterisk com a ferramenta SipP:</p>
+<div class="highlight"><pre>sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i <span class="s2">&quot;192.168.0.246&quot;</span> -r 300 -rp 3600
+</pre></div>
+ <a class="btn btn-info xsmall" href="http://theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html">read more</a></div>
+    </div>	
+				
     
  
         
