@@ -3,15 +3,17 @@
 &lt;p&gt;The proposed project is at two parts, considering time and difficulty level:&lt;/p&gt;
 &lt;p&gt;# Website static generation with translations – 4 weeks – Easy&lt;/p&gt;
 &lt;blockquote&gt;
-# Re-write the HTML pages for the Sphinx format (.rst file).
-# Use sphinx-build to generate the .pot files and translate them in Transifex.
-# After generating .mo translated file use the sphinx-build to generate the pages in each language. &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[14]&lt;/a&gt;
-# Use python-fabric to implement the deploy process (copying, compiling translation files, and build static files). &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[25]&lt;/a&gt;
-# Create a html template for sphinx with Language auto-selection.&lt;/blockquote&gt;
+&lt;p&gt;# Re-write the HTML pages for the Sphinx format (.rst file).&lt;/p&gt;
+&lt;p&gt;# Use sphinx-build to generate the .pot files and translate them in Transifex.&lt;/p&gt;
+&lt;p&gt;# After generating .mo translated file use the sphinx-build to generate the pages in each language. &lt;a class="footnote-reference" href="#id4" id="id1"&gt;[14]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;# Use python-fabric to implement the deploy process (copying, compiling translation files, and build static files). &lt;a class="footnote-reference" href="#id5" id="id2"&gt;[25]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;# Create a html template for sphinx with Language auto-selection.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;# Provide translated versions of images and screenshots – 8 weeks – Moderate&lt;/p&gt;
 &lt;blockquote&gt;
-# Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.
-# Create an extension in the Sphinx, to manage the correctly images at the generate static pages for each language. &lt;a class="footnote-reference" href="#id6" id="id3"&gt;[36]&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;# Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.&lt;/p&gt;
+&lt;p&gt;# Create an extension in the Sphinx, to manage the correctly images at the generate static pages for each language. &lt;a class="footnote-reference" href="#id6" id="id3"&gt;[36]&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="section" id="why-do-you-want-to-work-on-this-project"&gt;
 &lt;h2&gt;Why do you want to work on this project?&lt;/h2&gt;
 &lt;p&gt;I would like to work in this project because a wish learn more skills, working with international project, learn more English, relate with people from other countries, and, mainly, contribute to the open source community.&lt;/p&gt;
