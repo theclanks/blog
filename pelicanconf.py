@@ -10,7 +10,7 @@ TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = u'pt'
 
-THEME = './themes/themes/tuxlite_tbs'
+THEME = './themes/tuxlite_tbs'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
