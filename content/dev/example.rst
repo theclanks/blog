@@ -1,5 +1,5 @@
-Translation management and generation of static content with Transifex + Sphinx 
-===============================================================================
+Translation management and generation of static content with Transifex + Sphinx - title 
+=======================================================================================
 
 :date: 2013-05-03 12:08
 :tags: programacao, codigo, traducao
@@ -22,8 +22,7 @@ The proposed project is at two parts, considering time and difficulty level:
 
  #. Create a html template for sphinx with Language auto-selection.
 
-
-2. Provide translated versions of images and screenshots – 8 weeks – Moderate
+#. Provide translated versions of images and screenshots – 8 weeks – Moderate
 
  #. Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.
 
