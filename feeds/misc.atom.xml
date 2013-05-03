@@ -36,63 +36,62 @@
 &lt;/div&gt;
 &lt;div class="section" id="example-of-rst-file"&gt;
 &lt;h2&gt;Example of .rst file&lt;/h2&gt;
-&lt;pre class="literal-block"&gt;
-Translation management and generation of static content with Transifex + Sphinx - title 
-=======================================================================================
+&lt;pre class="code restructuredtext literal-block"&gt;
+&lt;span class="gh"&gt;Translation management and generation of static content with Transifex + Sphinx - title&lt;/span&gt;
+&lt;span class="gh"&gt;=======================================================================================&lt;/span&gt;
 
-:date: 2013-05-03 12:08
-:tags: programacao, codigo, traducao
-:category: Misc
-:author: The Clanks
+&lt;span class="nc"&gt;:date:&lt;/span&gt; &lt;span class="nf"&gt;2013-05-03 12:08&lt;/span&gt;
+&lt;span class="nc"&gt;:tags:&lt;/span&gt; &lt;span class="nf"&gt;programacao, codigo, traducao&lt;/span&gt;
+&lt;span class="nc"&gt;:category:&lt;/span&gt; &lt;span class="nf"&gt;Misc&lt;/span&gt;
+&lt;span class="nc"&gt;:author:&lt;/span&gt; &lt;span class="nf"&gt;The Clanks&lt;/span&gt;
 
 Hi, my name is Luis Carlos Otte Junior, I’m Brazilian and live at São Carlos, São Paulo.
 
-The proposed project is at two parts, considering time and difficulty level: 
+The proposed project is at two parts, considering time and difficulty level:
 
-#. Website static generation with translations – 4 weeks – Easy
+&lt;span class="m"&gt;#.&lt;/span&gt; Website static generation with translations – 4 weeks – Easy
 
- #. Re-write the HTML pages for the Sphinx format (.rst file).
+ &lt;span class="m"&gt;#.&lt;/span&gt; Re-write the HTML pages for the Sphinx format (.rst file).
 
- #. Use sphinx-build to generate the .pot files and translate them in Transifex.
+ &lt;span class="m"&gt;#.&lt;/span&gt; Use sphinx-build to generate the .pot files and translate them in Transifex.
 
- #. After generating .mo translated file use the sphinx-build to generate the pages in each language. .. [#]_
+ &lt;span class="m"&gt;#.&lt;/span&gt; After generating .mo translated file use the sphinx-build to generate the pages in each language. .. &lt;span class="s"&gt;[#]_&lt;/span&gt;
 
- #. Use python-fabric to implement the deploy process (copying, compiling translation files, and build static files). [#]_
+ &lt;span class="m"&gt;#.&lt;/span&gt; Use python-fabric to implement the deploy process (copying, compiling translation files, and build static files). &lt;span class="s"&gt;[#]_&lt;/span&gt;
 
- #. Create a html template for sphinx with Language auto-selection.
+ &lt;span class="m"&gt;#.&lt;/span&gt; Create a html template for sphinx with Language auto-selection.
 
-#. Provide translated versions of images and screenshots – 8 weeks – Moderate
+&lt;span class="m"&gt;#.&lt;/span&gt; Provide translated versions of images and screenshots – 8 weeks – Moderate
 
- #. Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.
+ &lt;span class="m"&gt;#.&lt;/span&gt; Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.
 
- #. Create an extension in the Sphinx, to manage the correctly images at the generate static pages for each language. [#]_
+ &lt;span class="m"&gt;#.&lt;/span&gt; Create an extension in the Sphinx, to manage the correctly images at the generate static pages for each language. &lt;span class="s"&gt;[#]_&lt;/span&gt;
 
 
- 
-Why do you want to work on this project?
-----------------------------------------
+
+&lt;span class="gh"&gt;Why do you want to work on this project?&lt;/span&gt;
+&lt;span class="gh"&gt;----------------------------------------&lt;/span&gt;
 
 I would like to work in this project because a wish learn more skills, working with international project, learn more English, relate with people from other countries, and, mainly, contribute to the open source community.
 
- 
-Why should we choose you?
--------------------------
+
+&lt;span class="gh"&gt;Why should we choose you?&lt;/span&gt;
+&lt;span class="gh"&gt;-------------------------&lt;/span&gt;
 
 I like to work and study in all that is necessary, specially Linux, Python, and PHP. Nowadays, I’m working with open source projects in a corporation. And I would like to be useful in anything.
 
- 
-Please list relevant academic, industry and/or open source experience
----------------------------------------------------------------------
+
+&lt;span class="gh"&gt;Please list relevant academic, industry and/or open source experience&lt;/span&gt;
+&lt;span class="gh"&gt;---------------------------------------------------------------------&lt;/span&gt;
 
 I’m a graduate student of analysis and systems development and a developer on Virgos Co. (www.virgos.com.br) and work with Python/Django, C, and PHP development. Currently, I’m working in a data mining project with Django and Selenium RC, and others telecom projects using Asterisk, C programming and Python.
 
 
-.. rubric:: References:
+&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="ow"&gt;rubric&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt; References:
 
-.. [#] Sphinx Internationalization: http://sphinx-doc.org/latest/intl.html
-.. [#] python-Fabric: http://docs.fabfile.org/en/1.6/
-.. [#] Sphinx Extensions: http://sphinx-doc.org/extensions.html
-
+&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="nt"&gt;[#]&lt;/span&gt; Sphinx Internationalization: http://sphinx-doc.org/latest/intl.html
+&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="nt"&gt;[#]&lt;/span&gt; python-Fabric: http://docs.fabfile.org/en/1.6/
+&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="nt"&gt;[#]&lt;/span&gt; Sphinx Extensions: http://sphinx-doc.org/extensions.html
 &lt;/pre&gt;
 &lt;p class="rubric"&gt;References:&lt;/p&gt;
 &lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
