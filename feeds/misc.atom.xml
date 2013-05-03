@@ -61,8 +61,7 @@ The proposed project is at two parts, considering time and difficulty level:
 
  #. Create a html template for sphinx with Language auto-selection.
 
-
-2. Provide translated versions of images and screenshots – 8 weeks – Moderate
+#. Provide translated versions of images and screenshots – 8 weeks – Moderate
 
  #. Create an add-on for Transifex, reuse your classes (Project, user permission, and language) and implement the upload/export of the images according to the language.
 
@@ -129,7 +128,7 @@ I’m a graduate student of analysis and systems development and a developer on 
 &lt;li&gt;Create a html template for sphinx with Language auto-selection.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;ol class="arabic simple" start="2"&gt;
+&lt;ol class="arabic simple"&gt;
 &lt;li&gt;Provide translated versions of images and screenshots – 8 weeks – Moderate&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
