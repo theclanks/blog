@@ -56,8 +56,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html"><h1>Teste de Stress no Asterisk c/ SipP</h1></a>
-            Qui 06 dezembro 2012
+            <a href="theclanks.github.io/blog/descompilando-pyc.html"><h1>Descompilando PYC</h1></a>
+            Sex 28 setembro 2012
 
 by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
  
@@ -66,18 +66,101 @@ by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The 
  
         </div>
         
-        <div><p>Teste simples de stress no Asterisk com a ferramenta SipP:</p>
-<div class="highlight"><pre>sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i <span class="s2">&quot;192.168.0.246&quot;</span> -r 300 -rp 3600
+        <div><p>Solução simples para descompilar arquivos pyc</p>
+<div class="highlight"><pre>git clone https://github.com/zrax/pycdc
+<span class="nb">cd </span>pycdc make
+./bin/pycdc Example.pyc &gt; Example.py
 </pre></div>
 </div>
         <hr />
     </div>
 		
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="theclanks.github.io/blog/instalacao-nginx-com-django-no-centos-5.html"><h2>Instalação Nginx com Django no CentOS 5</h2></a>
+        <div class= "well small"> Qui 20 setembro 2012
+
+by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
+ 
+
+
+ </div>
+        <div class="summary"><div class="section" id="instalacao-nginx">
+<h2>Instalação Nginx</h2>
+<p>Para instalar o Nginx no Centos basta seguir o tutorial no site do projeto, ou
+adicione o seguinte arquivo na lista de repositórios do Centos:</p>
+<ul class="simple">
+<li>/etc/yum.repos.d/nginx.repo</li>
+</ul>
+<div class="highlight"><pre><span class="k">[nginx]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">nginx repo</span>
+<span class="na">baseurl</span><span class="o">=</span><span class="s">http://nginx.org/packages/centos/$releasever/$basearch/</span>
+<span class="na">gpgcheck</span><span class="o">=</span><span class="s">0</span>
+<span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
+</pre></div>
+<p>Após ...</p></div> <a class="btn btn-info xsmall" href="theclanks.github.io/blog/instalacao-nginx-com-django-no-centos-5.html">read more</a></div>
+    </div>	
+				
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="theclanks.github.io/blog/python-27-no-centos-5.html"><h2>Python 2.7 no Centos 5</h2></a>
+        <div class= "well small"> Qui 20 setembro 2012
+
+by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Parece algo bem fácil, mas é uma dor de cabeça, principalmente em versões de SO
+muito antigas instalar mais de uma versão do Python para utilizar o nosso amigo
+virtualenv, segue as instruções abaixo:</p>
+<div class="section" id="instalando-python">
+<h2>Instalando Python</h2>
+<div class="highlight"><pre><span class="nv">$ </span>wget http://www.python.org/ftp/python/2.7/Python-2.7.tgz
+<span class="nv">$ </span>tar xvzf ...</pre></div></div> <a class="btn btn-info xsmall" href="theclanks.github.io/blog/python-27-no-centos-5.html">read more</a></div>
+    </div>	
+				
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="theclanks.github.io/blog/resolvendo-problemas-de-acentuacao-modulo-shutil-python.html"><h2>Resolvendo problemas de acentuação módulo Shutil - Python</h2></a>
+        <div class= "well small"> Qui 20 setembro 2012
+
+by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Após muito sofrimento e horas de tortura com um problema de acentuação, encontrei
+uma solução válida para utilização do módulo shuitil com arquivos que possuem acentução.
+Utilizando a função .encode(&quot;utf-8&quot;)</p>
+<p>Segue o Erro gerado antes da função:</p>
+<ul class="simple">
+<li>UnicodeDecodeError: 'ascii' codec can't decode byte</li>
+</ul>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">shutil</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">origem ...</span></pre></div> <a class="btn btn-info xsmall" href="theclanks.github.io/blog/resolvendo-problemas-de-acentuacao-modulo-shutil-python.html">read more</a></div>
+    </div>	
+				
             <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-    <li class="active"><a href="theclanks.github.io/blog/tag/teste.html">1</a></li>
+    <li class="active"><a href="theclanks.github.io/blog/category/python.html">1</a></li>
 
     <li class="next disabled"><a href="#">&rarr; Next</a></li>
 

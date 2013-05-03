@@ -49,42 +49,61 @@
     <div class="row">
 
         <div class="span9">
-                
-
-        
-
-
-    <div class='article'>
+            <div class='article'>
         <div class="content-title">
-            <a href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html"><h1>Teste de Stress no Asterisk c/ SipP</h1></a>
-            Qui 06 dezembro 2012
+            <h1>Python 2.7 no Centos 5</h1>
+            Qui 20 setembro 2012
 
 by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
  
 
 
- 
         </div>
-        
-        <div><p>Teste simples de stress no Asterisk com a ferramenta SipP:</p>
-<div class="highlight"><pre>sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i <span class="s2">&quot;192.168.0.246&quot;</span> -r 300 -rp 3600
+	
+        <div><p>Parece algo bem fácil, mas é uma dor de cabeça, principalmente em versões de SO
+muito antigas instalar mais de uma versão do Python para utilizar o nosso amigo
+virtualenv, segue as instruções abaixo:</p>
+<div class="section" id="instalando-python">
+<h2>Instalando Python</h2>
+<div class="highlight"><pre><span class="nv">$ </span>wget http://www.python.org/ftp/python/2.7/Python-2.7.tgz
+<span class="nv">$ </span>tar xvzf Python-2.7.tgz
+<span class="nv">$ </span><span class="nb">cd </span>Python-2.7
+<span class="nv">$ </span>./configure --prefix<span class="o">=</span>/usr/local
+<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> make altinstall
 </pre></div>
+<p>O truque é utilizar altinstall, uma vez que o mesmo não vai influênciar a
+versão atual instalada no SO.</p>
 </div>
-        <hr />
+<div class="section" id="compilando-o-setuptools-e-instalando-pip-e-virtualenv">
+<h2>Compilando o Setuptools e instalando pip e virtualenv</h2>
+<div class="highlight"><pre><span class="nv">$ </span>wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz#md5<span class="o">=</span>7df2a529a074f613b509fb44feefe74e
+<span class="nv">$ </span>tar -xvf setuptools-0.6c11.tar.gz
+<span class="nv">$ </span><span class="nb">cd </span>setuptools-0.6c11
+<span class="nv">$ </span>python2.7 setup.py install
+<span class="nv">$ </span>easy_install-2.7 install pip
+<span class="nv">$ </span>pip-2.7 install virtualenv
+</pre></div>
+<p>Novamente o segredo é utilizar nosso novo python2.7 na hora de compilar o
+setuptools, caso contrário na hora de executar o virtualenv, o mesmo vai utilizar a
+versão padrão do SO.</p>
+</div>
+</div>
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'othniblog'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-		
-            <div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="theclanks.github.io/blog/tag/teste.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
-</div>    
- 
-  
         </div>
         
         <div class="span3">

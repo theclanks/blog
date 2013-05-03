@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/asterisk.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2012-12-06T15:52:00+01:00</updated><entry><title>Teste de Stress no Asterisk c/ SipP</title><link href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html" rel="alternate"></link><updated>2012-12-06T15:52:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-06:teste-de-stress-no-asterisk-c-sipp.html</id><summary type="html">&lt;p&gt;Teste simples de stress no Asterisk com a ferramenta SipP:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i &lt;span class="s2"&gt;&amp;quot;192.168.0.246&amp;quot;&lt;/span&gt; -r 300 -rp 3600
+&lt;/pre&gt;&lt;/div&gt;
+</summary><category term="programacao"></category><category term="teste"></category><category term="asterisk"></category></entry></feed>

@@ -49,42 +49,38 @@
     <div class="row">
 
         <div class="span9">
-                
-
-        
-
-
-    <div class='article'>
+            <div class='article'>
         <div class="content-title">
-            <a href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html"><h1>Teste de Stress no Asterisk c/ SipP</h1></a>
-            Qui 06 dezembro 2012
+            <h1>Exportando seu projeto no GIT para tar.bz2</h1>
+            Qua 10 outubro 2012
 
 by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
  
 
 
- 
         </div>
-        
-        <div><p>Teste simples de stress no Asterisk com a ferramenta SipP:</p>
-<div class="highlight"><pre>sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i <span class="s2">&quot;192.168.0.246&quot;</span> -r 300 -rp 3600
+	
+        <div><p>Para exportar seu projeto basta executar o comando abaixo na pasta raiz do
+projeto:</p>
+<div class="highlight"><pre>git archive --format tar master | bzip2 &gt; ../../../projeto.tar.bz2
 </pre></div>
 </div>
-        <hr />
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'othniblog'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-		
-            <div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="theclanks.github.io/blog/tag/teste.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
-</div>    
- 
-  
         </div>
         
         <div class="span3">

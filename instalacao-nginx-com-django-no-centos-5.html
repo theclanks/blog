@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Othni Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="The_Clanks">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="theclanks.github.io/blog/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="theclanks.github.io/blog/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="theclanks.github.io/blog/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="theclanks.github.io/blog/theme/local.css" rel="stylesheet">
+    <link href="theclanks.github.io/blog/theme/pygments.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="theclanks.github.io/blog">Othni Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+                    
+                                </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+            <div class='article'>
+        <div class="content-title">
+            <h1>Instalação Nginx com Django no CentOS 5</h1>
+            Qui 20 setembro 2012
+
+by <a class="url fn" href="theclanks.github.io/blog/author/the-clanks.html">The Clanks</a>
+ 
+
+
+        </div>
+	
+        <div><div class="section" id="instalacao-nginx">
+<h2>Instalação Nginx</h2>
+<p>Para instalar o Nginx no Centos basta seguir o tutorial no site do projeto, ou
+adicione o seguinte arquivo na lista de repositórios do Centos:</p>
+<ul class="simple">
+<li>/etc/yum.repos.d/nginx.repo</li>
+</ul>
+<div class="highlight"><pre><span class="k">[nginx]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">nginx repo</span>
+<span class="na">baseurl</span><span class="o">=</span><span class="s">http://nginx.org/packages/centos/$releasever/$basearch/</span>
+<span class="na">gpgcheck</span><span class="o">=</span><span class="s">0</span>
+<span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
+</pre></div>
+<p>Após isso instalar com o comando: yum install nginx.</p>
+</div>
+<div class="section" id="configurando-nginx">
+<h2>Configurando Nginx</h2>
+<p>Após instalação crie um arquivo no seguinte diretório: /etc/nginx/conf.d/
+com as seguintes linhas abaixo, lembrando que você pode configura-lo na porta
+que desejar.</p>
+<div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">8000</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">projeto</span><span class="p">;</span>
+    <span class="kn">access_log</span> <span class="s">/var/log/nginx/projeto.access.log</span><span class="p">;</span>
+    <span class="kn">error_log</span> <span class="s">/var/log/nginx/projeto.error.log</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/static/</span> <span class="p">{</span>
+      <span class="kn">alias</span> <span class="s">/home/user/projeto/static/</span><span class="p">;</span> <span class="c1"># STATIC_ROOT</span>
+      <span class="kn">expires</span> <span class="s">30d</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="s">/media/</span> <span class="p">{</span>
+       <span class="kn">alias</span> <span class="s">/home/user/projeto/media/</span><span class="p">;</span> <span class="c1"># MEDIA_ROOT</span>
+       <span class="kn">expires</span> <span class="s">30d</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+      <span class="kn">include</span> <span class="s">fastcgi_params</span><span class="p">;</span>
+      <span class="kn">fastcgi_pass</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8080</span><span class="p">;</span>
+      <span class="kn">fastcgi_split_path_info</span> <span class="s">^()(.*)</span>$<span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="ativando-o-daemon-do-django">
+<h2>Ativando o daemon do Django</h2>
+<p>Eu criei um script de inicialização feito para sistemas RedHat, aproveitando
+o script utilizado no Celeryd. Embora você pode ativar o daemon quando quiser
+com o comando:</p>
+<ul class="simple">
+<li>./manage.py runfcgi method=prefork host=127.0.0.1 port=8080</li>
+</ul>
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c"># projeto</span>
+<span class="c"># chkconfig: - 80 05</span>
+<span class="c"># description: projeto daemon</span>
+<span class="c">#</span>
+
+<span class="c">### BEGIN INIT INFO</span>
+<span class="c"># Provides:          projeto</span>
+<span class="c"># Required-Start:    $mysqld</span>
+<span class="c"># Required-Stop:     $mysqld</span>
+<span class="c"># Default-Start:</span>
+<span class="c"># Default-Stop:</span>
+<span class="c"># Description:       projeto daemon</span>
+<span class="c"># Short-Description: Enable Django projeto</span>
+<span class="c">### END INIT INFO</span>
+
+<span class="c"># config: /etc/sysconfig/projeto</span>
+<span class="c"># pidfile: /var/run/projeto.pid</span>
+
+<span class="c"># source function library</span>
+. /etc/rc.d/init.d/functions
+
+<span class="c"># pull in sysconfig settings</span>
+<span class="c">#[ -f /etc/sysconfig/projeto ] &amp;&amp; . /etc/sysconfig/projeto</span>
+
+<span class="nv">RETVAL</span><span class="o">=</span>0
+<span class="nv">prog</span><span class="o">=</span><span class="s2">&quot;projeto&quot;</span>
+
+<span class="nv">DJANGO_PID_FILE</span><span class="o">=</span><span class="s2">&quot;/var/run/projeto.pid&quot;</span>
+<span class="nv">DJANGO_LOG_FILE</span><span class="o">=</span><span class="s2">&quot;/var/log/projeto.log&quot;</span>
+<span class="nv">DJANGO_LOG_LEVEL</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span>
+<span class="nv">DEFAULT_DJANGO</span><span class="o">=</span><span class="s2">&quot;DJANGO&quot;</span>
+<span class="nv">DJANGO_PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;/home/user/projeto&quot;</span>
+<span class="nv">PYTHON_PATH</span><span class="o">=</span><span class="s2">&quot;/home/user/projeto/env/bin/python&quot;</span>
+<span class="nv">DJANGO_PORT</span><span class="o">=</span><span class="s2">&quot;8080&quot;</span>
+<span class="nv">DJANGO_BIND</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$DJANGO&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">    if</span> <span class="o">[</span> ! -z <span class="s2">&quot;$DJANGO_PROJECT_DIR&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">        </span><span class="nv">DJANGO</span><span class="o">=</span><span class="s2">&quot;$PYTHON_PATH $DJANGO_PROJECT_DIR/manage.py&quot;</span>
+        <span class="nv">DJANGO_OPTS</span><span class="o">=</span><span class="s2">&quot;runfcgi method=prefork host=$DJANGO_BIND port=$DJANGO_PORT pidfile=$DJANGO_PID_FILE&quot;</span>
+    <span class="k">else</span>
+<span class="k">        </span><span class="nv">DJANGO</span><span class="o">=</span><span class="nv">$DEFAULT_DJANGO</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="nb">cd</span> <span class="nv">$DJANGO_PROJECT_DIR</span>
+
+<span class="c">#DJANGO_OPTS=&quot;$DJANGO_OPTS -f $DJANGO_LOG_FILE -l $DJANGO_LOG_LEVEL&quot;</span>
+<span class="c">#if [ -n &quot;$2&quot; ]; then</span>
+<span class="c">#    DJANGO_OPTS=&quot;$DJANGO_OPTS $2&quot;</span>
+<span class="c">#fi</span>
+
+<span class="nb">exec</span><span class="o">=</span><span class="s2">&quot;$DJANGO $DJANGO_OPTS&quot;</span>
+
+start<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nb">echo</span> -n <span class="s2">$&quot;Starting $prog: &quot;</span>
+        daemon --pidfile<span class="o">=</span><span class="k">${</span><span class="nv">DJANGO_PID_FILE</span><span class="k">}</span> <span class="nv">$exec</span> 2&gt;/dev/null
+        <span class="nv">RETVAL</span><span class="o">=</span><span class="nv">$?</span>
+        <span class="nb">echo</span>
+        <span class="o">[</span> <span class="s2">&quot;$RETVAL&quot;</span> <span class="o">=</span> 0 <span class="o">]</span> <span class="o">&amp;&amp;</span> touch /var/lock/subsys/projeto
+        <span class="k">return</span> <span class="nv">$RETVAL</span>
+<span class="o">}</span>
+
+stop<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nb">echo</span> -n <span class="s2">$&quot;Stopping $prog: &quot;</span>
+        killproc -d 10 <span class="nv">$exec</span> -TERM
+        <span class="nv">RETVAL</span><span class="o">=</span><span class="nv">$?</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;x$runlevel&quot;</span> <span class="o">=</span> x0 -o <span class="s2">&quot;x$runlevel&quot;</span> <span class="o">=</span> x6 <span class="o">]</span> ; <span class="k">then</span>
+<span class="k">            </span>killall <span class="nv">$exec</span> 2&gt;/dev/null
+        <span class="k">fi</span>
+<span class="k">        </span><span class="nb">echo</span>
+        <span class="o">[</span> <span class="s2">&quot;$RETVAL&quot;</span> <span class="o">=</span> 0 <span class="o">]</span> <span class="o">&amp;&amp;</span> rm -f /var/lock/subsys/projeto /var/run/projeto /var/run/projeto.pid
+        <span class="k">return</span> <span class="nv">$RETVAL</span>
+<span class="o">}</span>
+
+
+<span class="k">case</span> <span class="s2">&quot;$1&quot;</span> in
+        start<span class="o">)</span>
+                start
+                ;;
+        stop<span class="o">)</span>
+                stop
+                ;;
+        restart<span class="o">)</span>
+                stop
+                start
+                ;;
+        status<span class="o">)</span>
+                status projeto -p <span class="nv">$DJANGO_PID_FILE</span>
+                <span class="nv">RETVAL</span><span class="o">=</span><span class="nv">$?</span>
+                ;;
+        <span class="se">\*</span><span class="o">)</span>
+                <span class="nb">echo</span> <span class="s2">$&quot;Usage: $0 {start|stop|restart|status}&quot;</span>
+                <span class="nv">RETVAL</span><span class="o">=</span>1
+<span class="k">esac</span>
+<span class="nb">exit</span> <span class="nv">$RETVAL</span>
+</pre></div>
+<p>Referências:</p>
+<ul class="simple">
+<li>Django and Nginx <a class="reference external" href="https://code.djangoproject.com/wiki/DjangoAndNginx">DjangoAndNginx</a></li>
+</ul>
+</div>
+</div>
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'othniblog'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="theclanks.github.io/blog/archives.html">Archives</a>
+                <li><a href="theclanks.github.io/blog/tags.html">Tags</a>
+                <li><a href="theclanks.github.io/blog/" rel="alternate">Atom feed</a></li>
+                            </ul>
+            </div>
+
+
+                        <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                                <li><a href="theclanks.github.io/blog/category/asterisk.html">Asterisk</a></li>
+                                <li><a href="theclanks.github.io/blog/category/misc.html">Misc</a></li>
+                                <li><a href="theclanks.github.io/blog/category/php.html">PHP</a></li>
+                                <li><a href="theclanks.github.io/blog/category/python.html">Python</a></li>
+                                   
+            </ul>
+            </div>
+            
+
+                        <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                            <li><a href="http://python.org">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
+                            <li><a href="http://www.blogalizado.com.br/">Blogalizado</a></li>
+                            <li><a href="http://www.cyberciti.biz/">NixCraft</a></li>
+                        </ul>
+            </div>
+            
+
+                        <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                                <li><a href="http://github.com/theclanks">github</a></li>
+                            </ul>
+            </div>
+            </div>
+            
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="theclanks.github.io/blog">Othni Blog</a> &copy; The_Clanks 2013</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

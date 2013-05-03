@@ -1,87 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2013-02-04T13:53:00+01:00</updated><entry><title>Removendo diretórios .svn redundantes pós commit</title><link href="theclanks.github.io/blog/removendo-diretorios-svn-redundantes-pos-commit.html" rel="alternate"></link><updated>2013-02-04T13:53:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2013-02-04:removendo-diretorios-svn-redundantes-pos-commit.html</id><summary type="html">&lt;p&gt;Abaixo alguns comandos para corrigir essa &amp;quot;praga&amp;quot; que ocorre no svn, quando esses malditos .svn em sub-diretórios conseguem escapar pelo commit do git-svn e vão parar no repositório do servidor.&lt;/p&gt;
-&lt;p&gt;Para quem utiliza git-svn não há problema, mas se alguém quiser rodar o checkout pelo svn puro, o mesmo se perde e não sabe o que fazer com esses diretório causando um erro e interrompendo o checkout, resultado você quebrou o repositório. ;)&lt;/p&gt;
-&lt;p&gt;Segue a seqüência que deve ser feita no servidor ou local do repositório svn:&lt;/p&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;Precisamos realizar um dump do repositório para backup e para trabalharmos nele posteriomente, para utilizamos o comando svnadmin:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;svnadmin dump /svnroot/foo &amp;gt; /root/foo
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ol class="arabic simple" start="2"&gt;
-&lt;li&gt;Agora vamos &amp;quot;filtrar&amp;quot; as pragas isso mesmo, esse é o grande truque, podendo especificar mais de um .svn se for o caso:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;svndumpfilter exclude &lt;span class="s2"&gt;&amp;quot;trunk/php/common/css/theme/images/.svn&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;trunk/php/common/css/theme/.svn&amp;quot;&lt;/span&gt; &amp;lt; /root/foo &amp;gt; /root/foo-filtered
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Deu certo?, se mostrar os arquivos removidos &amp;quot;dropeds&amp;quot; sim!, lembrando que se você estiver utilizando uma versão mais nova do svn, esse comando tem suporte a pattern, não foi meu caso, para variar.&lt;/p&gt;
-&lt;ol class="arabic simple" start="3"&gt;
-&lt;li&gt;Remova o respositório atual:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;rm -rf /svnroot/foo
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ol class="arabic simple" start="4"&gt;
-&lt;li&gt;Vamos criar um novo:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;svnadmin create /svnroot/foo
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ol class="arabic simple" start="5"&gt;
-&lt;li&gt;Agora é só importar o dump filtrado para seu novo repositório:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;svnadmin load /svnroot/foo &amp;lt; /root/foo-filtered
-&lt;/pre&gt;&lt;/div&gt;
-</summary><category term="git"></category><category term="svn"></category></entry><entry><title>Importando um branch qualquer em sub-diretório no Master</title><link href="theclanks.github.io/blog/importando-um-branch-qualquer-em-sub-diretorio-no-master.html" rel="alternate"></link><updated>2013-02-04T11:33:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2013-02-04:importando-um-branch-qualquer-em-sub-diretorio-no-master.html</id><summary type="html">&lt;p&gt;Com nosso amigo Git, é possível importarmos um branch qualquer, em um sub-diretório dentro do branch Master. Mas para que isso? Oras é uma boa solução para quem trabalha com svn (infelizmente) e se depara com aquelas pastas branch, trunk e tag e não quer colocar isso tudo no seu repositório só git e as vezes remoto, por exemplo.&lt;/p&gt;
-&lt;p&gt;Abaixo a seqüência do processo bem simples com o comando git read-tree:&lt;/p&gt;
-&lt;p&gt;Vamos começar por exemplo com um repositório remoto dentro de um repositório
-git-svn, vou adicionar ele em um branch:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;git remote add remote_foo https://theclanks@bitbucket.org/theclanks/foo.git
-git fetch remote_foo
-git checkout -b remote_foo remote_foo/master
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Agora temos um branch com nosso projeto git puro, próximo passo vem o
-read-tree apontando para pasta trunk do svn:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;git checkout master
-git &lt;span class="nb"&gt;read&lt;/span&gt;-tree --prefix&lt;span class="o"&gt;=&lt;/span&gt;trunk/projeto/codigo_fonte/ -u remote_foo
-git merge --squash -s subtree --no-commit remote_foo
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Pronto, nosso projeto está pronto para um commit:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;Projeto: Inclusao codigo no repositorio&amp;quot;&lt;/span&gt;
-git svn dcommit
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Para maiores informações, segue a página do manual git: &lt;a class="reference external" href="http://git-scm.com/book/ch6-7.html"&gt;http://git-scm.com/book/ch6-7.html&lt;/a&gt;&lt;/p&gt;
-</summary><category term="git"></category><category term="svn"></category></entry><entry><title>Boas práticas de segurança - PHP</title><link href="theclanks.github.io/blog/boas-praticas-de-seguranca-php.html" rel="alternate"></link><updated>2012-12-10T17:32:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-10:boas-praticas-de-seguranca-php.html</id><summary type="html">&lt;p&gt;Segue abaixo um link de um artigo muito interessante sobre boas práticas de
-configurações em relação a segurança de um servidor com PHP.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;dl class="first docutils"&gt;
-&lt;dt&gt;Linux: 25 PHP Security Best Practices For Sys Admins:&lt;/dt&gt;
-&lt;dd&gt;&lt;p class="first last"&gt;&lt;a class="reference external" href="http://www.cyberciti.biz/tips/php-security-best-practices-tutorial.html"&gt;http://www.cyberciti.biz/tips/php-security-best-practices-tutorial.html&lt;/a&gt;&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</summary><category term="php"></category><category term="segurança"></category></entry><entry><title>Teste de Stress no Asterisk c/ SipP</title><link href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html" rel="alternate"></link><updated>2012-12-06T15:52:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-06:teste-de-stress-no-asterisk-c-sipp.html</id><summary type="html">&lt;p&gt;Teste simples de stress no Asterisk com a ferramenta SipP:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i &lt;span class="s2"&gt;&amp;quot;192.168.0.246&amp;quot;&lt;/span&gt; -r 300 -rp 3600
-&lt;/pre&gt;&lt;/div&gt;
-</summary><category term="programacao"></category><category term="teste"></category><category term="asterisk"></category></entry><entry><title>Exportando seu projeto no GIT para tar.bz2</title><link href="theclanks.github.io/blog/exportando-seu-projeto-no-git-para-tarbz2.html" rel="alternate"></link><updated>2012-10-10T11:52:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-10:exportando-seu-projeto-no-git-para-tarbz2.html</id><summary type="html">&lt;p&gt;Para exportar seu projeto basta executar o comando abaixo na pasta raiz do
-projeto:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;git archive --format tar master | bzip2 &amp;gt; ../../../projeto.tar.bz2
-&lt;/pre&gt;&lt;/div&gt;
-</summary><category term="programacao"></category><category term="codigo"></category><category term="git"></category></entry><entry><title>Padrões de Codificação (Code Conventions)</title><link href="theclanks.github.io/blog/padroes-de-codificacao-code-conventions.html" rel="alternate"></link><updated>2012-10-08T16:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-08:padroes-de-codificacao-code-conventions.html</id><summary type="html">&lt;p&gt;Alguns sites sobre Padrões de codificação.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;dl class="docutils"&gt;
-&lt;dt&gt;PHP (PEAR Coding Standards)&lt;/dt&gt;
-&lt;dd&gt;&lt;a class="reference external" href="http://pear.php.net/manual/en/standards.php"&gt;http://pear.php.net/manual/en/standards.php&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Python (PEP 8 – Style Guide for Python Code)&lt;/dt&gt;
-&lt;dd&gt;&lt;a class="reference external" href="http://www.python.org/dev/peps/pep-0008/"&gt;http://www.python.org/dev/peps/pep-0008/&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Java (Code Conventions for the Java Programming Language)&lt;/dt&gt;
-&lt;dd&gt;&lt;a class="reference external" href="http://java.sun.com/docs/codeconv/"&gt;http://java.sun.com/docs/codeconv/&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Zend Framework Coding Standard for PHP)&lt;/dt&gt;
-&lt;dd&gt;&lt;a class="reference external" href="http://framework.zend.com/manual/en/coding-standard.html"&gt;http://framework.zend.com/manual/en/coding-standard.html&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Ruby StyleGuide&lt;/dt&gt;
-&lt;dd&gt;&lt;a class="reference external" href="https://github.com/chneukirchen/styleguide/blob/master/RUBY-STYLE"&gt;https://github.com/chneukirchen/styleguide/blob/master/RUBY-STYLE&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;Mais informações&lt;/dt&gt;
-&lt;dd&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Coding_conventions"&gt;http://en.wikipedia.org/wiki/Coding_conventions&lt;/a&gt;&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;/blockquote&gt;
-</summary><category term="programacao"></category><category term="codigo"></category></entry><entry><title>Descompilando PYC</title><link href="theclanks.github.io/blog/descompilando-pyc.html" rel="alternate"></link><updated>2012-09-28T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-28:descompilando-pyc.html</id><summary type="html">&lt;p&gt;Solução simples para descompilar arquivos pyc&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/python.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2012-09-28T18:20:00+02:00</updated><entry><title>Descompilando PYC</title><link href="theclanks.github.io/blog/descompilando-pyc.html" rel="alternate"></link><updated>2012-09-28T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-28:descompilando-pyc.html</id><summary type="html">&lt;p&gt;Solução simples para descompilar arquivos pyc&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/zrax/pycdc
 &lt;span class="nb"&gt;cd &lt;/span&gt;pycdc make
 ./bin/pycdc Example.pyc &amp;gt; Example.py
@@ -281,14 +199,4 @@ Utilizando a função .encode(&amp;quot;utf-8&amp;quot;)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
     &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;origem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;destino&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Git no ssh do Openshift</title><link href="theclanks.github.io/blog/git-no-ssh-do-openshift.html" rel="alternate"></link><updated>2012-09-10T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-10:git-no-ssh-do-openshift.html</id><summary type="html">&lt;p&gt;Para utilizarmos o Git direto no servidor Openshift, precisamos trabalhar com
-as variáveis:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;GIT_DIR “Diretório do git”&lt;/li&gt;
-&lt;li&gt;GIT_WORK_TREE “Diretório raiz do projeto”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Você pode exporta-las para economizar comandos:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_WORK_TREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/blog/repo/&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GIT_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/git/blog.git/&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-</summary><category term="python"></category><category term="git"></category></entry></feed>
+</summary><category term="python"></category></entry></feed>
