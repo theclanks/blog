@@ -51,7 +51,7 @@ git svn dcommit
 projeto:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git archive --format tar master | bzip2 &amp;gt; ../../../projeto.tar.bz2
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="programacao"></category><category term="codigo"></category><category term="git"></category></entry><entry><title>Padrões de Codificação (Code Conventions)</title><link href="theclanks.github.io/blog/padroes-de-codificacao-code-conventions.html" rel="alternate"></link><updated>2012-10-08T16:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-08:padroes-de-codificacao-code-conventions.html</id><summary type="html">&lt;p&gt;Alguns sites sobre Padrões de codificação.&lt;/p&gt;
+</summary><category term="programacao"></category><category term="codigo"></category><category term="git"></category></entry><entry><title>Padrões de Codificação (Code Conventions)</title><link href="theclanks.github.io/blog/padroes-de-codificacao-code-conventions.html" rel="alternate"></link><updated>2012-10-08T16:21:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-08:padroes-de-codificacao-code-conventions.html</id><summary type="html">&lt;p&gt;Alguns sites sobre Padrões de codificação.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;dl class="docutils"&gt;
 &lt;dt&gt;PHP (PEAR Coding Standards)&lt;/dt&gt;
