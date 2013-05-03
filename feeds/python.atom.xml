@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/python.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2012-09-28T18:20:00+02:00</updated><entry><title>Descompilando PYC</title><link href="theclanks.github.io/blog/descompilando-pyc.html" rel="alternate"></link><updated>2012-09-28T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-28:descompilando-pyc.html</id><summary type="html">&lt;p&gt;Solução simples para descompilar arquivos pyc&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni - Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/python.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2012-09-28T18:20:00-03:00</updated><entry><title>Descompilando PYC</title><link href="theclanks.github.io/blog/descompilando-pyc.html" rel="alternate"></link><updated>2012-09-28T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-28:descompilando-pyc.html</id><summary type="html">&lt;p&gt;Solução simples para descompilar arquivos pyc&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/zrax/pycdc
 &lt;span class="nb"&gt;cd &lt;/span&gt;pycdc make
 ./bin/pycdc Example.pyc &amp;gt; Example.py
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Instalação Nginx com Django no CentOS 5</title><link href="theclanks.github.io/blog/instalacao-nginx-com-django-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:instalacao-nginx-com-django-no-centos-5.html</id><summary type="html">&lt;div class="section" id="instalacao-nginx"&gt;
+</summary><category term="python"></category></entry><entry><title>Instalação Nginx com Django no CentOS 5</title><link href="theclanks.github.io/blog/instalacao-nginx-com-django-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:instalacao-nginx-com-django-no-centos-5.html</id><summary type="html">&lt;div class="section" id="instalacao-nginx"&gt;
 &lt;h2&gt;Instalação Nginx&lt;/h2&gt;
 &lt;p&gt;Para instalar o Nginx no Centos basta seguir o tutorial no site do projeto, ou
 adicione o seguinte arquivo na lista de repositórios do Centos:&lt;/p&gt;
@@ -162,7 +162,7 @@ stop&lt;span class="o"&gt;()&lt;/span&gt;
 &lt;li&gt;Django and Nginx &lt;a class="reference external" href="https://code.djangoproject.com/wiki/DjangoAndNginx"&gt;DjangoAndNginx&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Python 2.7 no Centos 5</title><link href="theclanks.github.io/blog/python-27-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:python-27-no-centos-5.html</id><summary type="html">&lt;p&gt;Parece algo bem fácil, mas é uma dor de cabeça, principalmente em versões de SO
+</summary><category term="python"></category></entry><entry><title>Python 2.7 no Centos 5</title><link href="theclanks.github.io/blog/python-27-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:python-27-no-centos-5.html</id><summary type="html">&lt;p&gt;Parece algo bem fácil, mas é uma dor de cabeça, principalmente em versões de SO
 muito antigas instalar mais de uma versão do Python para utilizar o nosso amigo
 virtualenv, segue as instruções abaixo:&lt;/p&gt;
 &lt;div class="section" id="instalando-python"&gt;
@@ -189,7 +189,7 @@ versão atual instalada no SO.&lt;/p&gt;
 setuptools, caso contrário na hora de executar o virtualenv, o mesmo vai utilizar a
 versão padrão do SO.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Resolvendo problemas de acentuação módulo Shutil - Python</title><link href="theclanks.github.io/blog/resolvendo-problemas-de-acentuacao-modulo-shutil-python.html" rel="alternate"></link><updated>2012-09-20T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:resolvendo-problemas-de-acentuacao-modulo-shutil-python.html</id><summary type="html">&lt;p&gt;Após muito sofrimento e horas de tortura com um problema de acentuação, encontrei
+</summary><category term="python"></category></entry><entry><title>Resolvendo problemas de acentuação módulo Shutil - Python</title><link href="theclanks.github.io/blog/resolvendo-problemas-de-acentuacao-modulo-shutil-python.html" rel="alternate"></link><updated>2012-09-20T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:resolvendo-problemas-de-acentuacao-modulo-shutil-python.html</id><summary type="html">&lt;p&gt;Após muito sofrimento e horas de tortura com um problema de acentuação, encontrei
 uma solução válida para utilização do módulo shuitil com arquivos que possuem acentução.
 Utilizando a função .encode(&amp;quot;utf-8&amp;quot;)&lt;/p&gt;
 &lt;p&gt;Segue o Erro gerado antes da função:&lt;/p&gt;

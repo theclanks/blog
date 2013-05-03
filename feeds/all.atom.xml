@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2013-02-04T13:53:00+01:00</updated><entry><title>Removendo diretórios .svn redundantes pós commit</title><link href="theclanks.github.io/blog/removendo-diretorios-svn-redundantes-pos-commit.html" rel="alternate"></link><updated>2013-02-04T13:53:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2013-02-04:removendo-diretorios-svn-redundantes-pos-commit.html</id><summary type="html">&lt;p&gt;Abaixo alguns comandos para corrigir essa &amp;quot;praga&amp;quot; que ocorre no svn, quando esses malditos .svn em sub-diretórios conseguem escapar pelo commit do git-svn e vão parar no repositório do servidor.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Othni - Blog</title><link href="theclanks.github.io/blog/" rel="alternate"></link><link href="theclanks.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>theclanks.github.io/blog/</id><updated>2013-02-04T13:53:00-02:00</updated><entry><title>Removendo diretórios .svn redundantes pós commit</title><link href="theclanks.github.io/blog/removendo-diretorios-svn-redundantes-pos-commit.html" rel="alternate"></link><updated>2013-02-04T13:53:00-02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2013-02-04:removendo-diretorios-svn-redundantes-pos-commit.html</id><summary type="html">&lt;p&gt;Abaixo alguns comandos para corrigir essa &amp;quot;praga&amp;quot; que ocorre no svn, quando esses malditos .svn em sub-diretórios conseguem escapar pelo commit do git-svn e vão parar no repositório do servidor.&lt;/p&gt;
 &lt;p&gt;Para quem utiliza git-svn não há problema, mas se alguém quiser rodar o checkout pelo svn puro, o mesmo se perde e não sabe o que fazer com esses diretório causando um erro e interrompendo o checkout, resultado você quebrou o repositório. ;)&lt;/p&gt;
 &lt;p&gt;Segue a seqüência que deve ser feita no servidor ou local do repositório svn:&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
@@ -28,7 +28,7 @@
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;svnadmin load /svnroot/foo &amp;lt; /root/foo-filtered
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="git"></category><category term="svn"></category></entry><entry><title>Importando um branch qualquer em sub-diretório no Master</title><link href="theclanks.github.io/blog/importando-um-branch-qualquer-em-sub-diretorio-no-master.html" rel="alternate"></link><updated>2013-02-04T11:33:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2013-02-04:importando-um-branch-qualquer-em-sub-diretorio-no-master.html</id><summary type="html">&lt;p&gt;Com nosso amigo Git, é possível importarmos um branch qualquer, em um sub-diretório dentro do branch Master. Mas para que isso? Oras é uma boa solução para quem trabalha com svn (infelizmente) e se depara com aquelas pastas branch, trunk e tag e não quer colocar isso tudo no seu repositório só git e as vezes remoto, por exemplo.&lt;/p&gt;
+</summary><category term="git"></category><category term="svn"></category></entry><entry><title>Importando um branch qualquer em sub-diretório no Master</title><link href="theclanks.github.io/blog/importando-um-branch-qualquer-em-sub-diretorio-no-master.html" rel="alternate"></link><updated>2013-02-04T11:33:00-02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2013-02-04:importando-um-branch-qualquer-em-sub-diretorio-no-master.html</id><summary type="html">&lt;p&gt;Com nosso amigo Git, é possível importarmos um branch qualquer, em um sub-diretório dentro do branch Master. Mas para que isso? Oras é uma boa solução para quem trabalha com svn (infelizmente) e se depara com aquelas pastas branch, trunk e tag e não quer colocar isso tudo no seu repositório só git e as vezes remoto, por exemplo.&lt;/p&gt;
 &lt;p&gt;Abaixo a seqüência do processo bem simples com o comando git read-tree:&lt;/p&gt;
 &lt;p&gt;Vamos começar por exemplo com um repositório remoto dentro de um repositório
 git-svn, vou adicionar ele em um branch:&lt;/p&gt;
@@ -47,7 +47,7 @@ git merge --squash -s subtree --no-commit remote_foo
 git svn dcommit
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Para maiores informações, segue a página do manual git: &lt;a class="reference external" href="http://git-scm.com/book/ch6-7.html"&gt;http://git-scm.com/book/ch6-7.html&lt;/a&gt;&lt;/p&gt;
-</summary><category term="git"></category><category term="svn"></category></entry><entry><title>Boas práticas de segurança - PHP</title><link href="theclanks.github.io/blog/boas-praticas-de-seguranca-php.html" rel="alternate"></link><updated>2012-12-10T17:32:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-10:boas-praticas-de-seguranca-php.html</id><summary type="html">&lt;p&gt;Segue abaixo um link de um artigo muito interessante sobre boas práticas de
+</summary><category term="git"></category><category term="svn"></category></entry><entry><title>Boas práticas de segurança - PHP</title><link href="theclanks.github.io/blog/boas-praticas-de-seguranca-php.html" rel="alternate"></link><updated>2012-12-10T17:32:00-02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-10:boas-praticas-de-seguranca-php.html</id><summary type="html">&lt;p&gt;Segue abaixo um link de um artigo muito interessante sobre boas práticas de
 configurações em relação a segurança de um servidor com PHP.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;dl class="first docutils"&gt;
@@ -57,14 +57,14 @@ configurações em relação a segurança de um servidor com PHP.&lt;/p&gt;
 &lt;/dl&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</summary><category term="php"></category><category term="segurança"></category></entry><entry><title>Teste de Stress no Asterisk c/ SipP</title><link href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html" rel="alternate"></link><updated>2012-12-06T15:52:00+01:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-06:teste-de-stress-no-asterisk-c-sipp.html</id><summary type="html">&lt;p&gt;Teste simples de stress no Asterisk com a ferramenta SipP:&lt;/p&gt;
+</summary><category term="php"></category><category term="segurança"></category></entry><entry><title>Teste de Stress no Asterisk c/ SipP</title><link href="theclanks.github.io/blog/teste-de-stress-no-asterisk-c-sipp.html" rel="alternate"></link><updated>2012-12-06T15:52:00-02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-12-06:teste-de-stress-no-asterisk-c-sipp.html</id><summary type="html">&lt;p&gt;Teste simples de stress no Asterisk com a ferramenta SipP:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sipp -sn uac -d 20000000 -s 701 192.168.0.244 -l 100 -mp 5606 -i &lt;span class="s2"&gt;&amp;quot;192.168.0.246&amp;quot;&lt;/span&gt; -r 300 -rp 3600
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="programacao"></category><category term="teste"></category><category term="asterisk"></category></entry><entry><title>Exportando seu projeto no GIT para tar.bz2</title><link href="theclanks.github.io/blog/exportando-seu-projeto-no-git-para-tarbz2.html" rel="alternate"></link><updated>2012-10-10T11:52:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-10:exportando-seu-projeto-no-git-para-tarbz2.html</id><summary type="html">&lt;p&gt;Para exportar seu projeto basta executar o comando abaixo na pasta raiz do
+</summary><category term="programacao"></category><category term="teste"></category><category term="asterisk"></category></entry><entry><title>Exportando seu projeto no GIT para tar.bz2</title><link href="theclanks.github.io/blog/exportando-seu-projeto-no-git-para-tarbz2.html" rel="alternate"></link><updated>2012-10-10T11:52:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-10:exportando-seu-projeto-no-git-para-tarbz2.html</id><summary type="html">&lt;p&gt;Para exportar seu projeto basta executar o comando abaixo na pasta raiz do
 projeto:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git archive --format tar master | bzip2 &amp;gt; ../../../projeto.tar.bz2
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="programacao"></category><category term="codigo"></category><category term="git"></category></entry><entry><title>Padrões de Codificação (Code Conventions)</title><link href="theclanks.github.io/blog/padroes-de-codificacao-code-conventions.html" rel="alternate"></link><updated>2012-10-08T16:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-08:padroes-de-codificacao-code-conventions.html</id><summary type="html">&lt;p&gt;Alguns sites sobre Padrões de codificação.&lt;/p&gt;
+</summary><category term="programacao"></category><category term="codigo"></category><category term="git"></category></entry><entry><title>Padrões de Codificação (Code Conventions)</title><link href="theclanks.github.io/blog/padroes-de-codificacao-code-conventions.html" rel="alternate"></link><updated>2012-10-08T16:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-10-08:padroes-de-codificacao-code-conventions.html</id><summary type="html">&lt;p&gt;Alguns sites sobre Padrões de codificação.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;dl class="docutils"&gt;
 &lt;dt&gt;PHP (PEAR Coding Standards)&lt;/dt&gt;
@@ -81,12 +81,12 @@ projeto:&lt;/p&gt;
 &lt;dd&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Coding_conventions"&gt;http://en.wikipedia.org/wiki/Coding_conventions&lt;/a&gt;&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;/blockquote&gt;
-</summary><category term="programacao"></category><category term="codigo"></category></entry><entry><title>Descompilando PYC</title><link href="theclanks.github.io/blog/descompilando-pyc.html" rel="alternate"></link><updated>2012-09-28T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-28:descompilando-pyc.html</id><summary type="html">&lt;p&gt;Solução simples para descompilar arquivos pyc&lt;/p&gt;
+</summary><category term="programacao"></category><category term="codigo"></category></entry><entry><title>Descompilando PYC</title><link href="theclanks.github.io/blog/descompilando-pyc.html" rel="alternate"></link><updated>2012-09-28T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-28:descompilando-pyc.html</id><summary type="html">&lt;p&gt;Solução simples para descompilar arquivos pyc&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/zrax/pycdc
 &lt;span class="nb"&gt;cd &lt;/span&gt;pycdc make
 ./bin/pycdc Example.pyc &amp;gt; Example.py
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Instalação Nginx com Django no CentOS 5</title><link href="theclanks.github.io/blog/instalacao-nginx-com-django-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:instalacao-nginx-com-django-no-centos-5.html</id><summary type="html">&lt;div class="section" id="instalacao-nginx"&gt;
+</summary><category term="python"></category></entry><entry><title>Instalação Nginx com Django no CentOS 5</title><link href="theclanks.github.io/blog/instalacao-nginx-com-django-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:instalacao-nginx-com-django-no-centos-5.html</id><summary type="html">&lt;div class="section" id="instalacao-nginx"&gt;
 &lt;h2&gt;Instalação Nginx&lt;/h2&gt;
 &lt;p&gt;Para instalar o Nginx no Centos basta seguir o tutorial no site do projeto, ou
 adicione o seguinte arquivo na lista de repositórios do Centos:&lt;/p&gt;
@@ -244,7 +244,7 @@ stop&lt;span class="o"&gt;()&lt;/span&gt;
 &lt;li&gt;Django and Nginx &lt;a class="reference external" href="https://code.djangoproject.com/wiki/DjangoAndNginx"&gt;DjangoAndNginx&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Python 2.7 no Centos 5</title><link href="theclanks.github.io/blog/python-27-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:python-27-no-centos-5.html</id><summary type="html">&lt;p&gt;Parece algo bem fácil, mas é uma dor de cabeça, principalmente em versões de SO
+</summary><category term="python"></category></entry><entry><title>Python 2.7 no Centos 5</title><link href="theclanks.github.io/blog/python-27-no-centos-5.html" rel="alternate"></link><updated>2012-09-20T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:python-27-no-centos-5.html</id><summary type="html">&lt;p&gt;Parece algo bem fácil, mas é uma dor de cabeça, principalmente em versões de SO
 muito antigas instalar mais de uma versão do Python para utilizar o nosso amigo
 virtualenv, segue as instruções abaixo:&lt;/p&gt;
 &lt;div class="section" id="instalando-python"&gt;
@@ -271,7 +271,7 @@ versão atual instalada no SO.&lt;/p&gt;
 setuptools, caso contrário na hora de executar o virtualenv, o mesmo vai utilizar a
 versão padrão do SO.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Resolvendo problemas de acentuação módulo Shutil - Python</title><link href="theclanks.github.io/blog/resolvendo-problemas-de-acentuacao-modulo-shutil-python.html" rel="alternate"></link><updated>2012-09-20T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:resolvendo-problemas-de-acentuacao-modulo-shutil-python.html</id><summary type="html">&lt;p&gt;Após muito sofrimento e horas de tortura com um problema de acentuação, encontrei
+</summary><category term="python"></category></entry><entry><title>Resolvendo problemas de acentuação módulo Shutil - Python</title><link href="theclanks.github.io/blog/resolvendo-problemas-de-acentuacao-modulo-shutil-python.html" rel="alternate"></link><updated>2012-09-20T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-20:resolvendo-problemas-de-acentuacao-modulo-shutil-python.html</id><summary type="html">&lt;p&gt;Após muito sofrimento e horas de tortura com um problema de acentuação, encontrei
 uma solução válida para utilização do módulo shuitil com arquivos que possuem acentução.
 Utilizando a função .encode(&amp;quot;utf-8&amp;quot;)&lt;/p&gt;
 &lt;p&gt;Segue o Erro gerado antes da função:&lt;/p&gt;
@@ -281,7 +281,7 @@ Utilizando a função .encode(&amp;quot;utf-8&amp;quot;)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
     &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;origem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;destino&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Git no ssh do Openshift</title><link href="theclanks.github.io/blog/git-no-ssh-do-openshift.html" rel="alternate"></link><updated>2012-09-10T18:20:00+02:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-10:git-no-ssh-do-openshift.html</id><summary type="html">&lt;p&gt;Para utilizarmos o Git direto no servidor Openshift, precisamos trabalhar com
+</summary><category term="python"></category></entry><entry><title>Git no ssh do Openshift</title><link href="theclanks.github.io/blog/git-no-ssh-do-openshift.html" rel="alternate"></link><updated>2012-09-10T18:20:00-03:00</updated><author><name>The Clanks</name></author><id>tag:theclanks.github.io/blog,2012-09-10:git-no-ssh-do-openshift.html</id><summary type="html">&lt;p&gt;Para utilizarmos o Git direto no servidor Openshift, precisamos trabalhar com
 as variáveis:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;GIT_DIR “Diretório do git”&lt;/li&gt;
