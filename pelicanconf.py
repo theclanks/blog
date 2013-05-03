@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'The_Clanks'
-SITENAME = u'Othni Blog'
-SITEURL = 'http://theclanks.github.io/blog'
+AUTHOR = u"The Clanks"
+SITENAME = u"Othni - Blog"
+SITEURL = ''
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'America/Sao_Paulo'
 
 DEFAULT_LANG = u'pt'
 
